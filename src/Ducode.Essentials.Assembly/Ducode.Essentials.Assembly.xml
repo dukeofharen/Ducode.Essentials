@@ -1,0 +1,103 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Ducode.Essentials.Assembly</name>
+    </assembly>
+    <members>
+        <member name="T:Ducode.Essentials.Assembly.AssemblyHelper">
+            <summary>
+            A static class containing several assembly related helper methods.
+            </summary>
+        </member>
+        <member name="M:Ducode.Essentials.Assembly.AssemblyHelper.GetImplementations``1">
+            <summary>
+            Gets all implementations of a specific interface.
+            </summary>
+            <typeparam name="TInterface">The type of the interface.</typeparam>
+            <returns>A list with all implementation types.</returns>
+        </member>
+        <member name="M:Ducode.Essentials.Assembly.AssemblyHelper.GetEntryAssemblyRootPath">
+            <summary>
+            Returns the root path of the entry assembly.
+            </summary>
+            <returns>The root path of the entry assembly.</returns>
+        </member>
+        <member name="M:Ducode.Essentials.Assembly.AssemblyHelper.GetExecutingAssemblyRootPath">
+            <summary>
+            Returns the root path of the executing assembly.
+            </summary>
+            <returns>The root path of the executing assembly.</returns>
+        </member>
+        <member name="M:Ducode.Essentials.Assembly.AssemblyHelper.GetAssemblyVersion">
+            <summary>
+            Gets the assembly version of the running application.
+            </summary>
+            <returns>The assembly version.</returns>
+        </member>
+        <member name="T:Ducode.Essentials.Assembly.AssemblyService">
+            <summary>
+            A class that is used to perform several assembly related tasks.
+            </summary>
+            <seealso cref="T:Ducode.Essentials.Assembly.Interfaces.IAssemblyService" />
+        </member>
+        <member name="M:Ducode.Essentials.Assembly.AssemblyService.GetAssemblyVersion">
+            <summary>
+            Gets the assembly version of the running application.
+            </summary>
+            <returns>
+            The assembly version.
+            </returns>
+        </member>
+        <member name="M:Ducode.Essentials.Assembly.AssemblyService.GetEntryAssemblyRootPath">
+            <summary>
+            Returns the root path of the entry assembly.
+            </summary>
+            <returns>
+            The root path of the entry assembly.
+            </returns>
+        </member>
+        <member name="M:Ducode.Essentials.Assembly.AssemblyService.GetExecutingAssemblyRootPath">
+            <summary>
+            Returns the root path of the executing assembly.
+            </summary>
+            <returns>
+            The root path of the executing assembly.
+            </returns>
+        </member>
+        <member name="T:Ducode.Essentials.Assembly.DependencyRegistration">
+            <summary>
+            A static class for registering all needed classes for working with assemblies.
+            </summary>
+        </member>
+        <member name="M:Ducode.Essentials.Assembly.DependencyRegistration.AddAssemblyServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            A method for registering all dependencies for registering all needed classes for working with assemblies.
+            </summary>
+            <param name="services">The services.</param>
+            <returns>The <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/>.</returns>
+        </member>
+        <member name="T:Ducode.Essentials.Assembly.Interfaces.IAssemblyService">
+            <summary>
+            Describes a class that is used to perform several assembly related tasks.
+            </summary>
+        </member>
+        <member name="M:Ducode.Essentials.Assembly.Interfaces.IAssemblyService.GetEntryAssemblyRootPath">
+            <summary>
+            Returns the root path of the entry assembly.
+            </summary>
+            <returns>The root path of the entry assembly.</returns>
+        </member>
+        <member name="M:Ducode.Essentials.Assembly.Interfaces.IAssemblyService.GetExecutingAssemblyRootPath">
+            <summary>
+            Returns the root path of the executing assembly.
+            </summary>
+            <returns>The root path of the executing assembly.</returns>
+        </member>
+        <member name="M:Ducode.Essentials.Assembly.Interfaces.IAssemblyService.GetAssemblyVersion">
+            <summary>
+            Gets the assembly version of the running application.
+            </summary>
+            <returns>The assembly version.</returns>
+        </member>
+    </members>
+</doc>
