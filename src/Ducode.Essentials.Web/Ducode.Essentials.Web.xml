@@ -1,0 +1,82 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Ducode.Essentials.Web</name>
+    </assembly>
+    <members>
+        <member name="T:Ducode.Essentials.Web.DependencyRegistration">
+            <summary>
+            A class for registering web related dependencies.
+            </summary>
+        </member>
+        <member name="M:Ducode.Essentials.Web.DependencyRegistration.AddWebServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Registers all web related dependencies.
+            </summary>
+            <param name="services">The services.</param>
+            <returns>The <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/>.</returns>
+        </member>
+        <member name="T:Ducode.Essentials.Web.Interfaces.IWebService">
+            <summary>
+            Describes a class that is used to do HTTP calls.
+            </summary>
+        </member>
+        <member name="M:Ducode.Essentials.Web.Interfaces.IWebService.GetAsync(System.String)">
+            <summary>
+            Performs a GET request asynchronous.
+            </summary>
+            <param name="url">The URL.</param>
+            <returns>A <see cref="T:System.Net.Http.HttpResponseMessage"/></returns>
+        </member>
+        <member name="M:Ducode.Essentials.Web.Interfaces.IWebService.GetAsync(System.String,System.Collections.Generic.IDictionary{System.String,System.String})">
+            <summary>
+            Performs a GET request with headers asynchronous.
+            </summary>
+            <param name="url">The URL.</param>
+            <param name="headers">The headers.</param>
+            <returns>
+            A <see cref="T:System.Net.Http.HttpResponseMessage" />
+            </returns>
+        </member>
+        <member name="M:Ducode.Essentials.Web.Interfaces.IWebService.SendAsync(System.Net.Http.HttpRequestMessage)">
+            <summary>
+            Sends an HTTP request asynchronous
+            </summary>
+            <param name="message">The message.</param>
+            <returns>A <see cref="T:System.Net.Http.HttpResponseMessage"/></returns>
+        </member>
+        <member name="T:Ducode.Essentials.Web.WebService">
+            <summary>
+            A class that is used to do HTTP calls.
+            </summary>
+        </member>
+        <member name="M:Ducode.Essentials.Web.WebService.GetAsync(System.String)">
+            <summary>
+            Performs a GET request asynchronous.
+            </summary>
+            <param name="url">The URL.</param>
+            <returns>
+            A <see cref="T:System.Net.Http.HttpResponseMessage" />
+            </returns>
+        </member>
+        <member name="M:Ducode.Essentials.Web.WebService.GetAsync(System.String,System.Collections.Generic.IDictionary{System.String,System.String})">
+            <summary>
+            Performs a GET request with headers asynchronous.
+            </summary>
+            <param name="url">The URL.</param>
+            <param name="headers">The headers.</param>
+            <returns>
+            A <see cref="T:System.Net.Http.HttpResponseMessage" />
+            </returns>
+        </member>
+        <member name="M:Ducode.Essentials.Web.WebService.SendAsync(System.Net.Http.HttpRequestMessage)">
+            <summary>
+            Sends an HTTP request asynchronous
+            </summary>
+            <param name="message">The message.</param>
+            <returns>
+            A <see cref="T:System.Net.Http.HttpResponseMessage" />
+            </returns>
+        </member>
+    </members>
+</doc>
