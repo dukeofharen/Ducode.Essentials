@@ -13,7 +13,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Ducode.Essentials.Characters\Ducode.Essentials.Characters.csproj" />
+    <ProjectReference Include="..\Ducode.Essentials.Mvc.TestUtilities\Ducode.Essentials.Mvc.TestUtilities.csproj" />
+    <ProjectReference Include="..\Ducode.Essentials.Mvc\Ducode.Essentials.Mvc.csproj" />
   </ItemGroup>
 
 </Project>
