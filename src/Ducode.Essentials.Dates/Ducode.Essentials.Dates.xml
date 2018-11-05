@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Ducode.Essentials.Dates</name>
+    </assembly>
+    <members>
+        <member name="T:Ducode.Essentials.Dates.DateTimeService">
+            <summary>
+            A class that can be used to perform several DateTime related tasks.
+            </summary>
+            <seealso cref="T:Ducode.Essentials.Dates.Interfaces.IDateTimeService" />
+        </member>
+        <member name="P:Ducode.Essentials.Dates.DateTimeService.Now">
+            <summary>
+            Returns the current local date and time.
+            </summary>
+            <value>
+            The current local date and time.
+            </value>
+        </member>
+        <member name="P:Ducode.Essentials.Dates.DateTimeService.UtcNow">
+            <summary>
+            Returns the current UTC date and time.
+            </summary>
+            <value>
+            The current UTC date and time.
+            </value>
+        </member>
+        <member name="T:Ducode.Essentials.Dates.DependencyRegistration">
+            <summary>
+            A static class for registering all needed classes for working with dates and times.
+            </summary>
+        </member>
+        <member name="M:Ducode.Essentials.Dates.DependencyRegistration.AddDatesServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            A method for registering all needed dependencies for working with dates and times.
+            </summary>
+            <param name="services">The services.</param>
+            <returns>The <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/>.</returns>
+        </member>
+        <member name="T:Ducode.Essentials.Dates.Interfaces.IDateTimeService">
+            <summary>
+            Describes a class that can be used to perform several DateTime related tasks.
+            </summary>
+        </member>
+        <member name="P:Ducode.Essentials.Dates.Interfaces.IDateTimeService.Now">
+            <summary>
+            Returns the current local date and time.
+            </summary>
+            <value>
+            The current local date and time.
+            </value>
+        </member>
+        <member name="P:Ducode.Essentials.Dates.Interfaces.IDateTimeService.UtcNow">
+            <summary>
+            Returns the current UTC date and time.
+            </summary>
+            <value>
+            The current UTC date and time.
+            </value>
+        </member>
+    </members>
+</doc>

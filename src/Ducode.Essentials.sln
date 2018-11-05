@@ -13,6 +13,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{61D48F2A
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ducode.Essentials.Assembly", "Ducode.Essentials.Assembly\Ducode.Essentials.Assembly.csproj", "{8C8D5E4C-3623-47D8-9B2E-9B90F21999C8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ducode.Essentials.Dates", "Ducode.Essentials.Dates\Ducode.Essentials.Dates.csproj", "{D14BAF55-809D-4107-B64D-B735E4CBB23D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,6 +37,10 @@ Global
 		{8C8D5E4C-3623-47D8-9B2E-9B90F21999C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8C8D5E4C-3623-47D8-9B2E-9B90F21999C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8C8D5E4C-3623-47D8-9B2E-9B90F21999C8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D14BAF55-809D-4107-B64D-B735E4CBB23D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D14BAF55-809D-4107-B64D-B735E4CBB23D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D14BAF55-809D-4107-B64D-B735E4CBB23D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D14BAF55-809D-4107-B64D-B735E4CBB23D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
