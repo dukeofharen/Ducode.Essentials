@@ -130,5 +130,41 @@ namespace Ducode.Essentials.Files
       {
          return (File.GetAttributes(path) & FileAttributes.Directory) == FileAttributes.Directory;
       }
+
+      /// <summary>
+      /// Lists all files from a directory.
+      /// </summary>
+      /// <param name="path">The path.</param>
+      /// <param name="searchPattern">The search pattern.</param>
+      /// <returns>
+      /// A list with file paths.
+      /// </returns>
+      public string[] GetFiles(string path, string searchPattern)
+      {
+         return Directory.GetFiles(path, searchPattern);
+      }
+
+      /// <summary>
+      /// Gets the current directory.
+      /// </summary>
+      /// <returns>
+      /// The current directory path.
+      /// </returns>
+      public string GetCurrentDirectory()
+      {
+         return Directory.GetCurrentDirectory();
+      }
+
+      /// <summary>
+      /// Gets the last modication date and time of a path.
+      /// </summary>
+      /// <param name="path">The path.</param>
+      /// <returns>
+      /// The last modification date and time.
+      /// </returns>
+      public DateTime GetModicationDateTime(string path)
+      {
+         return File.GetLastWriteTimeUtc(path);
+      }
    }
 }

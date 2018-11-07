@@ -82,5 +82,26 @@ namespace Ducode.Essentials.Files.Interfaces
       ///   <c>true</c> if the specified path is directory; otherwise, <c>false</c>.
       /// </returns>
       bool IsDirectory(string path);
+
+      /// <summary>
+      /// Lists all files from a directory.
+      /// </summary>
+      /// <param name="path">The path.</param>
+      /// <param name="searchPattern">The search pattern.</param>
+      /// <returns>A list with file paths.</returns>
+      string[] GetFiles(string path, string searchPattern);
+
+      /// <summary>
+      /// Gets the current directory.
+      /// </summary>
+      /// <returns>The current directory path.</returns>
+      string GetCurrentDirectory();
+
+      /// <summary>
+      /// Gets the last modication date and time of a path.
+      /// </summary>
+      /// <param name="path">The path.</param>
+      /// <returns>The last modification date and time.</returns>
+      DateTime GetModicationDateTime(string path);
    }
 }

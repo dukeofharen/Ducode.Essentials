@@ -19,14 +19,19 @@ namespace Ducode.Essentials.Mvc
    {
       private const string ForwardedHostKey = "X-Forwarded-Host";
       private const string ForwardedProtoKey = "X-Forwarded-Proto";
+      private readonly IClientIpResolver _clientIpResolver;
       private readonly IHttpContextAccessor _httpContextAccessor;
 
       /// <summary>
-      /// Initializes a new instance of the <see cref="HttpContextService"/> class.
+      /// Initializes a new instance of the <see cref="HttpContextService" /> class.
       /// </summary>
+      /// <param name="clientIpResolver">The client ip resolver.</param>
       /// <param name="httpContextAccessor">The HTTP context accessor.</param>
-      public HttpContextService(IHttpContextAccessor httpContextAccessor)
+      public HttpContextService(
+         IClientIpResolver clientIpResolver,
+         IHttpContextAccessor httpContextAccessor)
       {
+         _clientIpResolver = clientIpResolver;
          _httpContextAccessor = httpContextAccessor;
       }
 
@@ -141,7 +146,7 @@ namespace Ducode.Essentials.Mvc
       {
          var request = _httpContextAccessor.HttpContext.Request;
          var header = request.Headers.FirstOrDefault(h => h.Key?.Equals(ForwardedHostKey, StringComparison.OrdinalIgnoreCase) == true);
-         string actualIp = IpUtilities.NormalizeIp(_httpContextAccessor.HttpContext.Connection.RemoteIpAddress.ToString());
+         string actualIp = _clientIpResolver.GetClientIp();
          if (header.Key != null && actualIp == "127.0.0.1")
          {
             // TODO in a later stage, check the reverse proxy against a list of "safe" proxy IPs.
@@ -163,7 +168,7 @@ namespace Ducode.Essentials.Mvc
       {
          var request = _httpContextAccessor.HttpContext.Request;
          var header = request.Headers.FirstOrDefault(h => h.Key?.Equals(ForwardedProtoKey, StringComparison.OrdinalIgnoreCase) == true);
-         string actualIp = IpUtilities.NormalizeIp(_httpContextAccessor.HttpContext.Connection.RemoteIpAddress.ToString());
+         string actualIp = _clientIpResolver.GetClientIp();
          if (header.Key != null && actualIp == "127.0.0.1")
          {
             // TODO in a later stage, check the reverse proxy against a list of "safe" proxy IPs.
