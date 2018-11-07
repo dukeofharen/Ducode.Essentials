@@ -73,5 +73,14 @@ namespace Ducode.Essentials.Files.Interfaces
       /// <param name="path">The path.</param>
       /// <returns>The last file write time.</returns>
       DateTime GetLastWriteTime(string path);
+
+      /// <summary>
+      /// Determines whether the specified path is a directory.
+      /// </summary>
+      /// <param name="path">The path.</param>
+      /// <returns>
+      ///   <c>true</c> if the specified path is directory; otherwise, <c>false</c>.
+      /// </returns>
+      bool IsDirectory(string path);
    }
 }

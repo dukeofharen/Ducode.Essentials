@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Text;
 using Ducode.Essentials.Files.Interfaces;
 
 namespace Ducode.Essentials.Files
@@ -119,6 +117,18 @@ namespace Ducode.Essentials.Files
       public DateTime GetLastWriteTime(string path)
       {
          return File.GetLastWriteTime(path);
+      }
+
+      /// <summary>
+      /// Determines whether the specified path is a directory.
+      /// </summary>
+      /// <param name="path">The path.</param>
+      /// <returns>
+      /// <c>true</c> if the specified path is directory; otherwise, <c>false</c>.
+      /// </returns>
+      public bool IsDirectory(string path)
+      {
+         return (File.GetAttributes(path) & FileAttributes.Directory) == FileAttributes.Directory;
       }
    }
 }
