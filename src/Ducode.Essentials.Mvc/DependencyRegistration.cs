@@ -19,9 +19,10 @@ namespace Ducode.Essentials.Mvc
       /// <returns>The <see cref="IServiceCollection"/>.</returns>
       public static IServiceCollection AddCustomMvcServices(this IServiceCollection services)
       {
-         services.TryAddSingleton<IHttpContextAccessor, HttpContextAccessor>();
          services.TryAddSingleton<IClientIpResolver, ClientIpResolver>();
+         services.TryAddSingleton<IHttpContextAccessor, HttpContextAccessor>();
          services.TryAddSingleton<IHttpContextService, HttpContextService>();
+         services.TryAddSingleton<ISessionService, SessionService>();
          return services;
       }
 
