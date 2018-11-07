@@ -134,10 +134,8 @@ namespace Ducode.Essentials.Mvc
          _httpContextAccessor.HttpContext?.Items.Add(key, item);
       }
 
-      
-
       /// <summary>
-      /// Gets the request host.
+      /// Gets the HTTP request host.
       /// </summary>
       /// <returns>
       /// The request host.

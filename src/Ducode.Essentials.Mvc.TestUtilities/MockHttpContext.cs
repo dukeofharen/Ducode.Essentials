@@ -124,6 +124,17 @@ namespace Ducode.Essentials.Mvc.TestUtilities
       }
 
       /// <summary>
+      /// Sets the HTTP host.
+      /// </summary>
+      /// <param name="host">The host.</param>
+      public void SetHost(string host)
+      {
+         HttpRequestMock
+            .Setup(m => m.Host)
+            .Returns(new HostString(host));
+      }
+
+      /// <summary>
       /// Initializes a new user with identifier claim.
       /// </summary>
       /// <param name="id">The identifier.</param>
@@ -168,6 +179,17 @@ namespace Ducode.Essentials.Mvc.TestUtilities
       }
 
       /// <summary>
+      /// Sets the HTTP query string.
+      /// </summary>
+      /// <param name="queryString">The query string.</param>
+      public void SetQueryString(string queryString)
+      {
+         HttpRequestMock
+            .Setup(m => m.QueryString)
+            .Returns(new QueryString(queryString));
+      }
+
+      /// <summary>
       /// Sets the request path.
       /// </summary>
       /// <param name="path">The path.</param>
@@ -180,12 +202,33 @@ namespace Ducode.Essentials.Mvc.TestUtilities
       }
 
       /// <summary>
+      /// Sets the request to HTTP(s).
+      /// </summary>
+      /// <param name="isHttps">if set to <c>true</c> [is HTTPS].</param>
+      public void SetHttps(bool isHttps)
+      {
+         HttpRequestMock
+            .Setup(m => m.IsHttps)
+            .Returns(isHttps);
+      }
+
+      /// <summary>
       /// Aborts the connection underlying this request.
       /// </summary>
       /// <exception cref="System.NotImplementedException"></exception>
       public override void Abort()
       {
          throw new NotImplementedException();
+      }
+
+      /// <summary>
+      /// Verifies all mock setups.
+      /// </summary>
+      public void VerifyAll()
+      {
+         ConnectionInfoMock.VerifyAll();
+         HttpRequestMock.VerifyAll();
+         HttpResponseMock.VerifyAll();
       }
 
       /// <summary>
