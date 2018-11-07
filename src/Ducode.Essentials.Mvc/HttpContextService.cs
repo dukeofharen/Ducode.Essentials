@@ -141,7 +141,8 @@ namespace Ducode.Essentials.Mvc
       {
          var request = _httpContextAccessor.HttpContext.Request;
          var header = request.Headers.FirstOrDefault(h => h.Key?.Equals(ForwardedHostKey, StringComparison.OrdinalIgnoreCase) == true);
-         if (header.Key != null)
+         string actualIp = IpUtilities.NormalizeIp(_httpContextAccessor.HttpContext.Connection.RemoteIpAddress.ToString());
+         if (header.Key != null && actualIp == "127.0.0.1")
          {
             // TODO in a later stage, check the reverse proxy against a list of "safe" proxy IPs.
             return header.Value;
@@ -162,7 +163,8 @@ namespace Ducode.Essentials.Mvc
       {
          var request = _httpContextAccessor.HttpContext.Request;
          var header = request.Headers.FirstOrDefault(h => h.Key?.Equals(ForwardedProtoKey, StringComparison.OrdinalIgnoreCase) == true);
-         if (header.Key != null)
+         string actualIp = IpUtilities.NormalizeIp(_httpContextAccessor.HttpContext.Connection.RemoteIpAddress.ToString());
+         if (header.Key != null && actualIp == "127.0.0.1")
          {
             // TODO in a later stage, check the reverse proxy against a list of "safe" proxy IPs.
             return header.Value.ToString().Equals("https", StringComparison.OrdinalIgnoreCase);

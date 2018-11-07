@@ -4,11 +4,9 @@ using System.Net;
 using System.Security.Claims;
 using System.Threading;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Http.Authentication;
 using Microsoft.AspNetCore.Http.Features;
 using Microsoft.AspNetCore.Mvc.Routing;
 using Microsoft.AspNetCore.Mvc.ViewFeatures;
-using Microsoft.Extensions.Primitives;
 using Moq;
 
 namespace Ducode.Essentials.Mvc.TestUtilities
