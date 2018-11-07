@@ -19,5 +19,20 @@ namespace Ducode.Essentials.Files
          services.TryAddSingleton<IFileService, FileService>();
          return services;
       }
+
+      /// <summary>
+      /// A method for registering all needed dependencies for working with file cache.
+      /// </summary>
+      /// <typeparam name="TFileCachingSettingsProvider">The type of the file caching settings provider.</typeparam>
+      /// <param name="services">The services.</param>
+      /// <returns>The <see cref="IServiceCollection"/>.</returns>
+      public static IServiceCollection AddFileCachingServices<TFileCachingSettingsProvider>(this IServiceCollection services)
+         where TFileCachingSettingsProvider : class, IFileCachingSettingsProvider
+      {
+         services.AddFileServices();
+         services.TryAddTransient<IFileCachingSettingsProvider, TFileCachingSettingsProvider>();
+         services.TryAddTransient<IFileCachingService, FileCachingService>();
+         return services;
+      }
    }
 }
