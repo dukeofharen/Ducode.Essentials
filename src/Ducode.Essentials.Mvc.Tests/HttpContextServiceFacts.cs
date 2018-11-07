@@ -1,4 +1,5 @@
-﻿using Ducode.Essentials.Mvc.TestUtilities;
+﻿using Ducode.Essentials.Mvc.Interfaces;
+using Ducode.Essentials.Mvc.TestUtilities;
 using Microsoft.AspNetCore.Http;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
@@ -8,6 +9,7 @@ namespace Ducode.Essentials.Mvc.Tests
    [TestClass]
    public class HttpContextServiceFacts
    {
+      private Mock<IClientIpResolver> _clientIpResolverMock;
       private MockHttpContext _mockHttpContext;
       private HttpContextService _service;
 
@@ -16,12 +18,21 @@ namespace Ducode.Essentials.Mvc.Tests
       {
          _mockHttpContext = new MockHttpContext();
 
+         _clientIpResolverMock = new Mock<IClientIpResolver>();
          var httpContextAccessorMock = new Mock<IHttpContextAccessor>();
          httpContextAccessorMock
             .Setup(m => m.HttpContext)
             .Returns(_mockHttpContext);
 
-         _service = new HttpContextService(httpContextAccessorMock.Object);
+         _service = new HttpContextService(
+            _clientIpResolverMock.Object,
+            httpContextAccessorMock.Object);
+      }
+
+      [TestCleanup]
+      public void Cleanup()
+      {
+         _clientIpResolverMock.VerifyAll();
       }
 
       [TestMethod]
