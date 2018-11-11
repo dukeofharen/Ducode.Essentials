@@ -43,6 +43,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ducode.Essentials.EntityFra
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ducode.Essentials.EntityFramework.Tests", "Ducode.Essentials.EntityFramework.Tests\Ducode.Essentials.EntityFramework.Tests.csproj", "{3F691535-E92D-40AA-9A55-948DEA786557}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ducode.Essentials.EntityFramework.TestUtilities", "Ducode.Essentials.EntityFramework.TestUtilities\Ducode.Essentials.EntityFramework.TestUtilities.csproj", "{AA173CE7-54BE-4D0D-AC7A-320BE3B7BCDA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -125,6 +127,10 @@ Global
 		{3F691535-E92D-40AA-9A55-948DEA786557}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3F691535-E92D-40AA-9A55-948DEA786557}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3F691535-E92D-40AA-9A55-948DEA786557}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AA173CE7-54BE-4D0D-AC7A-320BE3B7BCDA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA173CE7-54BE-4D0D-AC7A-320BE3B7BCDA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA173CE7-54BE-4D0D-AC7A-320BE3B7BCDA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA173CE7-54BE-4D0D-AC7A-320BE3B7BCDA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
