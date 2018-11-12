@@ -23,7 +23,7 @@ namespace Ducode.Essentials.EntityFramework.TestUtilities
          Entities = new List<object>();
          _random = new Random();
 
-         var unitOfWorkFactoryMock = new Mock<IUnitOfWorkFactory>(MockBehavior.Strict);
+         var unitOfWorkFactoryMock = new Mock<TUnitOfWorkFactory>(MockBehavior.Strict);
          UnitOfWorkMock = new Mock<IUnitOfWork>(MockBehavior.Strict);
 
          unitOfWorkFactoryMock.
@@ -58,7 +58,7 @@ namespace Ducode.Essentials.EntityFramework.TestUtilities
       /// <value>
       /// The unit of work factory.
       /// </value>
-      public IUnitOfWorkFactory UnitOfWorkFactory { get; }
+      public TUnitOfWorkFactory UnitOfWorkFactory { get; }
 
       /// <summary>
       /// Gets the unit of work mock.
