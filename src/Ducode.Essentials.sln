@@ -49,6 +49,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ducode.Essentials.CommonUti
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ducode.Essentials.CommonUtils.Tests", "Ducode.Essentials.CommonUtils.Tests\Ducode.Essentials.CommonUtils.Tests.csproj", "{91B21DB9-477E-4C7C-AB22-EE8B8AF7394D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ducode.Essentials.Console", "Ducode.Essentials.Console\Ducode.Essentials.Console.csproj", "{8A57E801-8429-43F1-9CA0-653424A7D051}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ducode.Essentials.Console.Tests", "Ducode.Essentials.Console.Tests\Ducode.Essentials.Console.Tests.csproj", "{921CC529-223B-4895-B94D-385529A920D4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -143,6 +147,14 @@ Global
 		{91B21DB9-477E-4C7C-AB22-EE8B8AF7394D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{91B21DB9-477E-4C7C-AB22-EE8B8AF7394D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{91B21DB9-477E-4C7C-AB22-EE8B8AF7394D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8A57E801-8429-43F1-9CA0-653424A7D051}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A57E801-8429-43F1-9CA0-653424A7D051}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A57E801-8429-43F1-9CA0-653424A7D051}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A57E801-8429-43F1-9CA0-653424A7D051}.Release|Any CPU.Build.0 = Release|Any CPU
+		{921CC529-223B-4895-B94D-385529A920D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{921CC529-223B-4895-B94D-385529A920D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{921CC529-223B-4895-B94D-385529A920D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{921CC529-223B-4895-B94D-385529A920D4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -156,6 +168,7 @@ Global
 		{1DC1A7D1-C63B-4CEB-9CA1-AA6908C51FDA} = {61D48F2A-DDC1-4E20-A895-DB333238F760}
 		{3F691535-E92D-40AA-9A55-948DEA786557} = {61D48F2A-DDC1-4E20-A895-DB333238F760}
 		{91B21DB9-477E-4C7C-AB22-EE8B8AF7394D} = {61D48F2A-DDC1-4E20-A895-DB333238F760}
+		{921CC529-223B-4895-B94D-385529A920D4} = {61D48F2A-DDC1-4E20-A895-DB333238F760}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {CFB7F69F-7675-482A-863A-ABFDD3B0CC0A}
