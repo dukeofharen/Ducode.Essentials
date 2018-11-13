@@ -39,11 +39,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ducode.Essentials.Files.Tes
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ducode.Essentials.Async", "Ducode.Essentials.Async\Ducode.Essentials.Async.csproj", "{65B27548-CDE9-44A6-9BBF-F66AB37869FA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ducode.Essentials.EntityFramework", "Ducode.Essentials.EntityFramework\Ducode.Essentials.EntityFramework.csproj", "{60854AA5-D6F0-4518-B828-2B2C34D5BB91}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ducode.Essentials.EntityFramework", "Ducode.Essentials.EntityFramework\Ducode.Essentials.EntityFramework.csproj", "{60854AA5-D6F0-4518-B828-2B2C34D5BB91}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ducode.Essentials.EntityFramework.Tests", "Ducode.Essentials.EntityFramework.Tests\Ducode.Essentials.EntityFramework.Tests.csproj", "{3F691535-E92D-40AA-9A55-948DEA786557}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ducode.Essentials.EntityFramework.Tests", "Ducode.Essentials.EntityFramework.Tests\Ducode.Essentials.EntityFramework.Tests.csproj", "{3F691535-E92D-40AA-9A55-948DEA786557}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ducode.Essentials.EntityFramework.TestUtilities", "Ducode.Essentials.EntityFramework.TestUtilities\Ducode.Essentials.EntityFramework.TestUtilities.csproj", "{AA173CE7-54BE-4D0D-AC7A-320BE3B7BCDA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ducode.Essentials.EntityFramework.TestUtilities", "Ducode.Essentials.EntityFramework.TestUtilities\Ducode.Essentials.EntityFramework.TestUtilities.csproj", "{AA173CE7-54BE-4D0D-AC7A-320BE3B7BCDA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ducode.Essentials.CommonUtils", "Ducode.Essentials.CommonUtils\Ducode.Essentials.CommonUtils.csproj", "{993D1C2A-4FE6-4058-A2F8-DC02243E0841}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ducode.Essentials.CommonUtils.Tests", "Ducode.Essentials.CommonUtils.Tests\Ducode.Essentials.CommonUtils.Tests.csproj", "{91B21DB9-477E-4C7C-AB22-EE8B8AF7394D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -131,6 +135,14 @@ Global
 		{AA173CE7-54BE-4D0D-AC7A-320BE3B7BCDA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AA173CE7-54BE-4D0D-AC7A-320BE3B7BCDA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AA173CE7-54BE-4D0D-AC7A-320BE3B7BCDA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{993D1C2A-4FE6-4058-A2F8-DC02243E0841}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{993D1C2A-4FE6-4058-A2F8-DC02243E0841}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{993D1C2A-4FE6-4058-A2F8-DC02243E0841}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{993D1C2A-4FE6-4058-A2F8-DC02243E0841}.Release|Any CPU.Build.0 = Release|Any CPU
+		{91B21DB9-477E-4C7C-AB22-EE8B8AF7394D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91B21DB9-477E-4C7C-AB22-EE8B8AF7394D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91B21DB9-477E-4C7C-AB22-EE8B8AF7394D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91B21DB9-477E-4C7C-AB22-EE8B8AF7394D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -143,6 +155,7 @@ Global
 		{D8D39C1B-07EE-4B09-80B6-A791412B6F40} = {61D48F2A-DDC1-4E20-A895-DB333238F760}
 		{1DC1A7D1-C63B-4CEB-9CA1-AA6908C51FDA} = {61D48F2A-DDC1-4E20-A895-DB333238F760}
 		{3F691535-E92D-40AA-9A55-948DEA786557} = {61D48F2A-DDC1-4E20-A895-DB333238F760}
+		{91B21DB9-477E-4C7C-AB22-EE8B8AF7394D} = {61D48F2A-DDC1-4E20-A895-DB333238F760}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {CFB7F69F-7675-482A-863A-ABFDD3B0CC0A}
