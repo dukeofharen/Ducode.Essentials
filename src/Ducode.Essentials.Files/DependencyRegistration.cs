@@ -1,4 +1,5 @@
-﻿using Ducode.Essentials.Files.Interfaces;
+﻿using Ducode.Essentials.Async;
+using Ducode.Essentials.Files.Interfaces;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 
@@ -30,6 +31,7 @@ namespace Ducode.Essentials.Files
          where TFileCachingSettingsProvider : class, IFileCachingSettingsProvider
       {
          services.AddFileServices();
+         services.AddAsyncServices();
          services.TryAddTransient<IFileCachingSettingsProvider, TFileCachingSettingsProvider>();
          services.TryAddTransient<IFileCachingService, FileCachingService>();
          return services;

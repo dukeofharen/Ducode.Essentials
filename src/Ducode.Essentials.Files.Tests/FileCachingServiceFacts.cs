@@ -1,8 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Text;
 using System.Threading.Tasks;
+using Ducode.Essentials.Async.Interfaces;
 using Ducode.Essentials.Files.Interfaces;
 using Ducode.Essentials.Files.Models;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -17,6 +16,7 @@ namespace Ducode.Essentials.Files.Tests
       private const string CacheFilename = "temp.json";
       private const string FileContents = @"{""name"": ""FileExists""}";
 
+      private Mock<IAsyncService> _asyncServiceMock;
       private Mock<IFileCachingSettingsProvider> _fileCachingSettingsProviderMock;
       private Mock<IFileService> _fileServiceMock;
       private FileCachingService _service;
@@ -24,9 +24,11 @@ namespace Ducode.Essentials.Files.Tests
       [TestInitialize]
       public void Initialize()
       {
+         _asyncServiceMock = new Mock<IAsyncService>();
          _fileCachingSettingsProviderMock = new Mock<IFileCachingSettingsProvider>();
          _fileServiceMock = new Mock<IFileService>();
          _service = new FileCachingService(
+            _asyncServiceMock.Object,
              _fileCachingSettingsProviderMock.Object,
              _fileServiceMock.Object);
       }
@@ -34,6 +36,7 @@ namespace Ducode.Essentials.Files.Tests
       [TestCleanup]
       public void Cleanup()
       {
+         _asyncServiceMock.VerifyAll();
          _fileCachingSettingsProviderMock.VerifyAll();
          _fileServiceMock.VerifyAll();
       }

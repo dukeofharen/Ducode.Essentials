@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using System.Threading.Tasks;
+using Ducode.Essentials.Async.Interfaces;
 using Ducode.Essentials.Files.Interfaces;
 using Newtonsoft.Json;
 
@@ -14,18 +15,22 @@ namespace Ducode.Essentials.Files
    /// <seealso cref="Ducode.Essentials.Files.Interfaces.IFileCachingService" />
    public class FileCachingService : IFileCachingService
    {
+      private readonly IAsyncService _asyncService;
       private readonly IFileCachingSettingsProvider _fileCachingSettingsProvider;
       private readonly IFileService _fileService;
 
       /// <summary>
-      /// Initializes a new instance of the <see cref="FileCachingService"/> class.
+      /// Initializes a new instance of the <see cref="FileCachingService" /> class.
       /// </summary>
+      /// <param name="asyncService">The asynchronous service.</param>
       /// <param name="fileCachingSettingsProvider">The file caching settings provider.</param>
       /// <param name="fileService">The file service.</param>
       public FileCachingService(
+         IAsyncService asyncService,
           IFileCachingSettingsProvider fileCachingSettingsProvider,
           IFileService fileService)
       {
+         _asyncService = asyncService;
          _fileCachingSettingsProvider = fileCachingSettingsProvider;
          _fileService = fileService;
       }
@@ -48,7 +53,7 @@ namespace Ducode.Essentials.Files
             return JsonConvert.DeserializeObject<TObject>(GetFileText(filename));
          }
 
-         TObject obj = await fileNotExistsFunc();
+         var obj = await fileNotExistsFunc();
          SaveFileText(filename, JsonConvert.SerializeObject(obj));
          return obj;
       }
@@ -69,21 +74,19 @@ namespace Ducode.Essentials.Files
             return null;
          }
 
-         var tempPath = GetTempPath();
-         return _fileService.ReadAllText(Path.Combine(tempPath, filename));
+         return ReadAllText(filename);
       }
 
       private void AssertDeleteFile(string filename, TimeSpan? validSpan = null)
       {
          if (validSpan.HasValue)
          {
-            var path = Path.Combine(GetTempPath(), filename);
-            if (_fileService.FileExists(path))
+            if (FileExists(filename))
             {
-               DateTime lastUpdate = _fileService.GetLastWriteTime(path);
+               var lastUpdate = GetLastWriteDateTime(filename);
                if (DateTime.Now - lastUpdate > validSpan.Value)
                {
-                  _fileService.DeleteFile(path);
+                  DeleteFile(filename);
                }
             }
          }
@@ -105,6 +108,24 @@ namespace Ducode.Essentials.Files
       {
          var tempPath = GetTempPath();
          _fileService.WriteAllText(Path.Combine(tempPath, filename), text);
+      }
+
+      private void DeleteFile(string filename)
+      {
+         var tempPath = GetTempPath();
+         _fileService.DeleteFile (Path.Combine(tempPath, filename));
+      }
+
+      private string ReadAllText(string filename)
+      {
+         var tempPath = GetTempPath();
+         return _fileService.ReadAllText(Path.Combine(tempPath, filename));
+      }
+
+      private DateTime GetLastWriteDateTime(string filename)
+      {
+         var tempPath = GetTempPath();
+         return _fileService.GetLastWriteTime(Path.Combine(tempPath, filename));
       }
    }
 }

@@ -13,5 +13,11 @@ namespace Ducode.Essentials.Async.Interfaces
       /// <param name="millis">The millis.</param>
       /// <returns>A task.</returns>
       Task DelayAsync(int millis);
+
+      /// <summary>
+      /// Adds a delay for a given amount of milliseconds.
+      /// </summary>
+      /// <param name="millis">The millis.</param>
+      void Sleep(int millis);
    }
 }
