@@ -15,6 +15,8 @@ namespace Ducode.Essentials.Files
    /// <seealso cref="Ducode.Essentials.Files.Interfaces.IFileCachingService" />
    public class FileCachingService : IFileCachingService
    {
+      private const int RetryMillis = 1000;
+      private const int NumberOfRetries = 3;
       private readonly IAsyncService _asyncService;
       private readonly IFileCachingSettingsProvider _fileCachingSettingsProvider;
       private readonly IFileService _fileService;
@@ -101,31 +103,81 @@ namespace Ducode.Essentials.Files
       private bool FileExists(string filename)
       {
          var tempPath = GetTempPath();
-         return _fileService.FileExists(Path.Combine(tempPath, filename));
+         Func<bool> func = () => _fileService.FileExists(Path.Combine(tempPath, filename));
+         return Retry(func);
       }
 
       private void SaveFileText(string filename, string text)
       {
          var tempPath = GetTempPath();
-         _fileService.WriteAllText(Path.Combine(tempPath, filename), text);
+         Action action = () => _fileService.WriteAllText(Path.Combine(tempPath, filename), text);
+         Retry(action);
       }
 
       private void DeleteFile(string filename)
       {
          var tempPath = GetTempPath();
-         _fileService.DeleteFile (Path.Combine(tempPath, filename));
+         Action action = () => _fileService.DeleteFile(Path.Combine(tempPath, filename));
+         Retry(action);
       }
 
       private string ReadAllText(string filename)
       {
          var tempPath = GetTempPath();
-         return _fileService.ReadAllText(Path.Combine(tempPath, filename));
+         Func<string> func = () => _fileService.ReadAllText(Path.Combine(tempPath, filename));
+         return Retry(func);
       }
 
       private DateTime GetLastWriteDateTime(string filename)
       {
          var tempPath = GetTempPath();
-         return _fileService.GetLastWriteTime(Path.Combine(tempPath, filename));
+         Func<DateTime> func = () => _fileService.GetLastWriteTime(Path.Combine(tempPath, filename));
+         return Retry(func);
+      }
+
+      private void Retry(Action action)
+      {
+         int counter = 0;
+         while (true)
+         {
+            try
+            {
+               action();
+               break;
+            }
+            catch (Exception)
+            {
+               counter++;
+               if (counter >= NumberOfRetries)
+               {
+                  throw;
+               }
+
+               _asyncService.Sleep(RetryMillis);
+            }
+         }
+      }
+
+      private TResult Retry<TResult>(Func<TResult> func)
+      {
+         int counter = 0;
+         while (true)
+         {
+            try
+            {
+               return func();
+            }
+            catch (Exception)
+            {
+               counter++;
+               if (counter > NumberOfRetries)
+               {
+                  throw;
+               }
+
+               _asyncService.Sleep(RetryMillis);
+            }
+         }
       }
    }
 }

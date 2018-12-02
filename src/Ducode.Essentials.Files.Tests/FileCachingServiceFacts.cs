@@ -143,6 +143,69 @@ namespace Ducode.Essentials.Files.Tests
       }
 
       [TestMethod]
+      public async Task FileCachingService_GetCachedFileAsync_FileDoesntExist_Exception_RetryAmountExceeded_ShouldThrowException()
+      {
+         // arrange
+         string expectedPath = Path.Combine(TempPath, CacheFilename);
+
+         var objectToSerialize = new Thingy("FileDoesntExist");
+
+         _fileCachingSettingsProviderMock
+             .Setup(m => m.GetFileCachingSettings())
+             .Returns(new FileCachingSettingsModel
+             {
+                TemporaryFolder = TempPath
+             });
+
+         _fileServiceMock
+             .Setup(m => m.FileExists(expectedPath))
+             .Returns(false);
+
+         _fileServiceMock
+             .Setup(m => m.WriteAllText(expectedPath, It.IsAny<string>()))
+             .Throws(new Exception());
+
+         // act
+         await Assert.ThrowsExceptionAsync<Exception>(() => _service.GetCachedFileAsync(CacheFilename, async () => await Task.FromResult(objectToSerialize), null));
+
+         // assert
+         _asyncServiceMock.Verify(m => m.Sleep(1000), Times.Exactly(2));
+      }
+
+      [TestMethod]
+      public async Task FileCachingService_GetCachedFileAsync_FileDoesntExist_Exception_LastRetrySucceeds()
+      {
+         // arrange
+         string expectedPath = Path.Combine(TempPath, CacheFilename);
+
+         var objectToSerialize = new Thingy("FileDoesntExist");
+
+         _fileCachingSettingsProviderMock
+             .Setup(m => m.GetFileCachingSettings())
+             .Returns(new FileCachingSettingsModel
+             {
+                TemporaryFolder = TempPath
+             });
+
+         _fileServiceMock
+             .Setup(m => m.FileExists(expectedPath))
+             .Returns(false);
+
+         _fileServiceMock
+            .SetupSequence(m => m.WriteAllText(expectedPath, It.IsAny<string>()))
+            .Throws(new Exception())
+            .Throws(new Exception())
+            .Pass();
+
+         // act
+         var result = await _service.GetCachedFileAsync(CacheFilename, async () => await Task.FromResult(objectToSerialize), null);
+
+         // assert
+         Assert.AreEqual(objectToSerialize, result);
+         _asyncServiceMock.Verify(m => m.Sleep(1000), Times.Exactly(2));
+      }
+
+      [TestMethod]
       public void FileCachingService_RemoveCachedFile_HappyFlow()
       {
          // arrange
