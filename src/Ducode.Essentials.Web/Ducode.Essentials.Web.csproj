@@ -3,6 +3,13 @@
    <PropertyGroup>
       <TargetFramework>netstandard2.0</TargetFramework>
       <GenerateDocumentationFile>true</GenerateDocumentationFile>
+      <Description>A package containing several web related utilities.</Description>
+      <PackageLicenseUrl>https://github.com/dukeofharen/Ducode.Essentials/blob/master/LICENSE.txt</PackageLicenseUrl>
+      <PackageProjectUrl>https://github.com/dukeofharen/Ducode.Essentials</PackageProjectUrl>
+      <PackageIconUrl>https://raw.githubusercontent.com/dukeofharen/Ducode.Essentials/master/media/ducode.png</PackageIconUrl>
+      <RepositoryUrl>https://github.com/dukeofharen/Ducode.Essentials</RepositoryUrl>
+      <PackageTags>web httpclient http</PackageTags>
+      <Version>1.0.0.0</Version>
    </PropertyGroup>
 
    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
