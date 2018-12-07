@@ -49,6 +49,17 @@ namespace Ducode.Essentials.Assembly
       }
 
       /// <summary>
+      /// Returns the root path of the calling assembly.
+      /// </summary>
+      /// <returns>The root path of the calling assembly.</returns>
+      public static string GetCallingAssemblyRootPath()
+      {
+         var assembly = System.Reflection.Assembly.GetCallingAssembly();
+         string path = assembly.Location;
+         return Path.GetDirectoryName(path);
+      }
+
+      /// <summary>
       /// Gets the assembly version of the running application.
       /// </summary>
       /// <returns>The assembly version.</returns>

@@ -22,5 +22,11 @@
       /// </summary>
       /// <returns>The assembly version.</returns>
       string GetAssemblyVersion();
+
+      /// <summary>
+      /// Returns the root path of the calling assembly.
+      /// </summary>
+      /// <returns>The root path of the calling assembly.</returns>
+      string GetCallingAssemblyRootPath();
    }
 }

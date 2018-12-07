@@ -1,4 +1,7 @@
-﻿[0.0.2]
+﻿[0.0.3]
+- Added GetCallingAssemblyRootPath method to AssemblyHelper class.
+
+[0.0.2]
 - Version bump for testing purposes.
 
 [0.0.1]

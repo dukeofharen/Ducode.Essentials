@@ -20,6 +20,17 @@ namespace Ducode.Essentials.Assembly
       }
 
       /// <summary>
+      /// Returns the root path of the calling assembly.
+      /// </summary>
+      /// <returns>
+      /// The root path of the calling assembly.
+      /// </returns>
+      public string GetCallingAssemblyRootPath()
+      {
+         return AssemblyHelper.GetCallingAssemblyRootPath();
+      }
+
+      /// <summary>
       /// Returns the root path of the entry assembly.
       /// </summary>
       /// <returns>
