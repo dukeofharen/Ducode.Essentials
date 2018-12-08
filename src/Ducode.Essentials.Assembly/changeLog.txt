@@ -1,4 +1,7 @@
-﻿[0.0.3]
+﻿[0.0.4]
+- Removed LICENSE.txt file.
+
+[0.0.3]
 - Added GetCallingAssemblyRootPath method to AssemblyHelper class.
 
 [0.0.2]
