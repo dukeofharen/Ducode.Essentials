@@ -8,7 +8,7 @@
     <PackageIconUrl>https://raw.githubusercontent.com/dukeofharen/Ducode.Essentials/master/media/ducode.png</PackageIconUrl>
     <RepositoryUrl>https://github.com/dukeofharen/Ducode.Essentials</RepositoryUrl>
     <PackageTags>date time datetime</PackageTags>
-    <Version>0.0.2</Version>
+    <Version>0.0.3</Version>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
