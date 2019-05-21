@@ -1,4 +1,7 @@
-﻿[0.0.2]
+﻿[0.0.3]
+- Added "GetAndSet" methods to ArgsHelper class.
+
+[0.0.2]
 - Removed LICENSE.txt file.
 
 [0.0.1]
