@@ -1,4 +1,7 @@
-﻿[0.0.4]
+﻿[0.0.5]
+- Added filter to GetImplementations method.
+
+[0.0.4]
 - Removed LICENSE.txt file.
 
 [0.0.3]
